@@ -1,41 +1,22 @@
-const div =document.querySelector(`div`);
-
-const input = document.querySelector(`input`)
-
-const btn=document.querySelector(`button`)
-
-const p= document.createElement(`p`);
-div.appendChild(p)
-
-ekle=async()=>{
-const isim=input.value
-    const Url=`https://api.tvmaze.com/search/shows?q=${isim}`
-
-const res= await fetch(Url);
-console.log(res);
-const data=await res.json();
-console.log(data);
-const {name,url,summary}=data[0];
+const listele =document.querySelector(`ul`);
+// const btn=document.querySelector(`button`);
+// const input=document.querySelector(`input`);
 
 
-    p.innerHTML=`<div class="card" style="width: 18rem;">
-    <img src="${url}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">"${name}"</h5>
-      <p class="card-text">${summary}</p>
-      <a href="https://www.tvmaze.com/shows/54296/camdaki-kiz" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>`
+// const countryName=input.innerText;
 
-}
+const url=`https://countryflagsapi.com/png/tr`
 
-btn.onclick=()=>{
+const data = async () => {await fetch(url).then(res=>res.json()).then(response=>{
+    response.forEach(element => {
+        
+listele.innerHTML+=`<li><img src="${element.url}" alt=""> </li>`   
+    });
+})}
 
-console.log(`clicked`);
-console.log(isim);
-  ekle()  ;
-}
+// btn.onclick=()=>{
+//  data();   
+// }
 
 
-console.log(div);
-console.log(p);
+data();
