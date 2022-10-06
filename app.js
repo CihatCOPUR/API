@@ -8,22 +8,24 @@ const filmName= input.innerText;
 const url=`https://restcountries.com/v2/name/${filmName}`
 
 
-function fetchApi(){
+ const islem = async()=>{
 
-fetch (url).then(res=>res.json()).then(item=>{
+ await fetch (url).then(res=>res.json()).then(item=>{ 
+    print (item);
     const li= document.createElement(`li`);
-const {region,name,capital,flags:{svg}
-}=li[0]
-    listele.appendChild(li);
-li.innerHTML=`
-  <p class="card-text">${region}${name}${capital}${region}</p>
 
-`
-    console.log(listele);
+    listele.appendChild(li);
+
+  
 })   }
    
     
-   fetchApi(`turkey`);
+const  print=(news)=>{
+    const {capital,}
+
+}
+
+   islem();
 //     console.log(item);
 //     listele.innerHTML=`<div class="card" style="width: 18rem;">
 //     <img class="card-img-top" src="" alt="Card image cap">
