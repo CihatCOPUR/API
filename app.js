@@ -1,47 +1,34 @@
-const listele =document.querySelector(`ul`);
-const btn=document.querySelector(`button`);
-const input=document.querySelector(`p`);
-
-const filmName= input.innerText;
 
 
-const url=`https://restcountries.com/v2/name/${filmName}`
+fetch(`https://restcountries.com/v3.1/all`).then(res=>res.json()).then(item=>atama(item));
 
+const atama=(data)=>{
+data.forEach((countries) => {
+    const cName=countries.name.common;
+    document.querySelector(`#select`).innerHTML+=`<option >${cName}</option>`
+}
+)
 
- const islem = async()=>{
+document.querySelector(`#select`).addEventListener(`change`,(event)=>{
+data.filter((data)=>{
+    const {capital,name,flags:{svg},currencies,languages,name:{common}}=data;
 
- await fetch (url).then(res=>res.json()).then(item=>{ 
-    print (item);
-    const li= document.createElement(`li`);
-
-    listele.appendChild(li);
-
-  
-})   }
-   
-    
-const  print=(news)=>{
-    const {capital,}
-
+if (common===event.target.value) {
+const li=document.createElement(`li`);
+li.classList.add(`li`)
+    document.querySelector(`ul`).prepend(li)
+    li.innerHTML=`<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="${svg}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">${common}</h5>
+      <p class="card-text">${capital}.</p>
+      <p class="card-text">${Object.values(languages)}.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>`
 }
 
-   islem();
-//     console.log(item);
-//     listele.innerHTML=`<div class="card" style="width: 18rem;">
-//     <img class="card-img-top" src="" alt="Card image cap">
-//     <div class="card-body">
-//       <h5 class="card-title">${name}</h5>
-//       <p class="card-text">${summary}</p>
-//       <a href="${url}" class="btn btn-primary">Go somewhere</a>
-//     </div>
-//   </div>`}
+})
+})
 
-
-
-
-
-// btn.onclick=()=>{
-//  data();   
-// }
-
-
+}
