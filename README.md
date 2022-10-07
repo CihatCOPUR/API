@@ -6,4 +6,5 @@ Fetch API
 
 
 
-![Untitled](https://user-images.githubusercontent.com/109276013/194511783-7d6cfdbe-7ccb-45c7-8930-b4a30a1bdf05.png)
+![Untitled22](https://user-images.githubusercontent.com/109276013/194512281-ae5841c8-9ab8-4a09-af8d-fe3801ab3920.png)
+
