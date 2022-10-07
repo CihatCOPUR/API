@@ -14,10 +14,8 @@ data.filter((data)=>{
     const {capital,name,flags:{svg},currencies,languages,name:{common}}=data;
 
 if (common===event.target.value) {
-const li=document.createElement(`li`);
-li.classList.add(`li`)
-    document.querySelector(`ul`).prepend(li)
-    li.innerHTML=`<div class="card" style="width: 18rem;">
+
+    document.querySelector(`ul`).innerHTML=`<div class="card"  style="width: 20%;background-color:none">
     <img class="card-img-top" src="${svg}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">${common}</h5>
@@ -26,7 +24,9 @@ li.classList.add(`li`)
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>`
+  
 }
+
 
 })
 })
